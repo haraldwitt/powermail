@@ -459,12 +459,14 @@ class FormController extends AbstractController
             $event = GeneralUtility::makeInstance(
                 FormControllerOptinConfirmActionBeforeRenderViewEvent::class,
                 $mail,
+                $this->view,
                 $hash,
                 $this
             );
 
             $this->eventDispatcher->dispatch($event);
             $mail = $event->getMail();
+            $this->view = $event->getView();
             $hash = $event->getHash();
 
             $response = $this->forwardIfFormParamsDoNotMatchForOptinConfirm($mail);
