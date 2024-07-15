@@ -295,7 +295,7 @@ class FormController extends AbstractController
      */
     public function createAction(Mail $mail, string $hash = ''): ResponseInterface
     {
-        $event = GeneralUtility::makeInstance(FormControllerCreateActionBeforeRenderViewEvent::class, $mail, $this->view, $hash, $this);
+        $event = GeneralUtility::makeInstance(FormControllerCreateActionBeforeRenderViewEvent::class, $mail, $hash, $this, $this->view);
         $this->eventDispatcher->dispatch($event);
         $mail = $event->getMail();
         $this->view = $event->getView();
@@ -460,9 +460,9 @@ class FormController extends AbstractController
             $event = GeneralUtility::makeInstance(
                 FormControllerOptinConfirmActionBeforeRenderViewEvent::class,
                 $mail,
-                $this->view,
                 $hash,
                 $this
+                $this->view,
             );
 
             $this->eventDispatcher->dispatch($event);
@@ -521,9 +521,9 @@ class FormController extends AbstractController
             $event = GeneralUtility::makeInstance(
                 FormControllerDisclaimerActionBeforeRenderViewEvent::class,
                 $mail,
-                $this->view,
                 $hash,
                 $this
+                $this->view,
             );
             $this->eventDispatcher->dispatch($event);
 
