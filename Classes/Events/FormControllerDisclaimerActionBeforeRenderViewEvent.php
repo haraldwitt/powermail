@@ -15,9 +15,9 @@ final class FormControllerDisclaimerActionBeforeRenderViewEvent
     protected Mail $mail;
 
     /**
-     * @var ViewInterface
+     * @var ViewInterface|null
      */
-    protected $view;
+    protected ?ViewInterface $view;
 
     /**
      * @var string
@@ -31,16 +31,16 @@ final class FormControllerDisclaimerActionBeforeRenderViewEvent
 
     /**
      * @param Mail $mail
-     * @param ViewInterface $view
      * @param string $hash
      * @param FormController $formController
+     * @param ViewInterface|null $view
      */
-    public function __construct(Mail $mail, ViewInterface $view, string $hash, FormController $formController)
+    public function __construct(Mail $mail, string $hash, FormController $formController, ?ViewInterface $view=null)
     {
         $this->mail = $mail;
-        $this->view = $view;
         $this->hash = $hash;
         $this->formController = $formController;
+        $this->view = $view;
     }
 
     public function setMail(Mail $mail): void
