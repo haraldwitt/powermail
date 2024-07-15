@@ -461,8 +461,8 @@ class FormController extends AbstractController
                 FormControllerOptinConfirmActionBeforeRenderViewEvent::class,
                 $mail,
                 $hash,
-                $this
-                $this->view,
+                $this,
+                $this->view
             );
 
             $this->eventDispatcher->dispatch($event);
@@ -522,8 +522,8 @@ class FormController extends AbstractController
                 FormControllerDisclaimerActionBeforeRenderViewEvent::class,
                 $mail,
                 $hash,
-                $this
-                $this->view,
+                $this,
+                $this->view
             );
             $this->eventDispatcher->dispatch($event);
 
