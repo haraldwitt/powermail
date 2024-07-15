@@ -15,7 +15,7 @@ final class FormControllerOptinConfirmActionBeforeRenderViewEvent
     protected Mail $mail;
 
     /**
-     * @var ViewInterface
+     * @var ViewInterface|null
      */
     protected ?ViewInterface $view;
     
