@@ -60,17 +60,17 @@ final class FormControllerOptinConfirmActionBeforeRenderViewEvent
     }
 
     /**
-     * @return ViewInterface
+     * @return ViewInterface|null
      */
-    public function getView(): ViewInterface
+    public function getView(): ?ViewInterface
     {
         return $this->view;
     }
 
     /**
-     * @param ViewInterface $view
+     * @param ViewInterface|null $view
      */
-    public function setView(ViewInterface $view): void
+    public function setView(?ViewInterface $view): void
     {
         $this->view = $view;
     }
